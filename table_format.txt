@@ -1,0 +1,10 @@
+Table formats:
+	Event_table:
+		columns:id,url,title,description,start_time,stop_time,price
+	Performer_table:
+		columns:id,url,name,short_bio,demand_member_count,event_count,popularity
+	Events_performer_table:
+		columns: Event_id, Performer_id
+
+
+

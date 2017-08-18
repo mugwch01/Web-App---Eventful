@@ -1,0 +1,38 @@
+{% extends "bootstrap/base.html" %}
+
+{% block content %}
+<nav class="navbar navbar-inverse" width="100%">
+  <div class="container-fluid">
+    
+    <ul class="nav navbar-nav">
+    <li><a href="/">Home</a></li>
+      
+      <li><a href="/upcomingevent">Events</a></li>
+      <li><a href="/commentsubmission"> Comments </a></li>
+      <li ><a href="/aboutus"> About</a></li>
+      <li> <a href="/api/request"> API</a></li>
+    </ul>
+    <form class="navbar-form navbar-left" action="/generalsearch">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search" name="searchtext">
+      </div>
+      <button type="submit" class="btn btn-default" >Submit</button>
+
+    </form>
+  
+  </div>
+   </br>
+</nav>
+<div class="container">
+  <h2>Please Leave Some Comments </h2>
+  <p>The form below contains a textarea for comments:</p>
+  <form id="form" action="/api/v1/eventsperformers" method="get">
+    <div class="form-group">
+      <label for="comment"> Your Comments Below</label>
+      <input type="text" class="form-control" placeholder="Search" name="data">
+      <input type="text" name="" value="Please send all your requests to http://localhost:8088/api/v1/eventsperformers?data=">
+    </div>
+   <button type="submit" class="btn btn-default" >Submit</button>
+  </form>
+</div>
+{% endblock %}

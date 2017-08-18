@@ -1,0 +1,83 @@
+
+
+{% extends "bootstrap/base.html" %}
+{% block title %} Home {% endblock %}
+{% block content %}
+
+<nav class="navbar navbar-inverse" width="100%">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+    <li width="15%"><a href="/">Home</a></li> 
+      <li><a href="/upcomingevent">Events</a></li>
+      <li><a href="/commentsubmission"> Comments</a></li>
+      <li ><a href="/aboutus"> About</a></li>
+      <li> <a href="/api/request"> API</a></li>
+    </ul>
+    <form class="navbar-form navbar-left" action="/generalsearch">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search" name="searchtext">
+      </div>
+      <button type="submit" class="btn btn-default" >Submit</button>
+
+    </form>
+  
+  </div>
+   </br>
+</nav>
+
+<div class="bs-example">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h1 class="panel-title text-success h1"><i>Events -- This is where Great things happen!!</i></h1>
+            	<br></br>
+				<div >
+					<form action="/performers">
+					<label>Performers</label>
+						<select name="select_performer" class="selectpicker" data-live-search="true" data-width='fit'>
+							{% for performer in pdata%}
+		
+							<option value="{{performer}}">
+							{{performer}}
+							</option>
+							{% endfor %}
+ 						</select>
+ 						<input type="submit" name="search">
+ 		
+
+					</form>
+				</div>
+				<br></br>
+
+				<div id="per">
+					<form action="/events">
+					<label>Events</label>
+						<select name="select_event" class="selectpicker" data-live-search="true" datawidth="150px">
+							{% for performer in performersdata %}
+		
+							<option value="{{performer}}">
+							{{performer}}
+							</option>
+							{% endfor %}
+ 							</select>
+ 						<input type="Submit" name="submit">
+ 		
+
+					</form>
+				</div>
+				<br></br>
+				<br></br>
+		</div>
+	</div>
+
+</div>
+<div class="col-md-2 col-md-offset-2">
+	<img src="/static/eventhome.jpg" class="img-fluid" alt="Responsive image">
+</div>
+
+{% endblock %}
+{{ super() }}
+{% block scripts %}
+<script type="text/javascript" src="/static/myscript.js"></script>
+
+{% endblock scripts %}
+
